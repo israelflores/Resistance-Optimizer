@@ -2,7 +2,7 @@
 Python version: 3.5
 Author: Israel Flores
 Discription: This program finds/combines a desired resistance among a finite number of resistors.
-The resistor values should be located in another file named “myResistos.txt”. The formatting of
+The resistor values should be located in another file named “myResistors.txt”. The formatting of
 that text file should (in every line) have the resistor value, followed by a comma, and then
 followed by the quantity. For example, if you have two 330 ohm, five 1kilo-ohm, and three 150
 ohm resistors, your file should look like this:
