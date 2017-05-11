@@ -1,29 +1,34 @@
-'''
-Python version: 3.5
+''' Python version: 3.5
+
 Author: Israel Flores
-Discription: This program finds/combines a desired resistance among a finite number of resistors.
-The resistor values should be located in another file named “myResistors.txt”. The formatting of
-that text file should (in every line) have the resistor value, followed by a comma, and then
-followed by the quantity. For example, if you have two 330 ohm, five 1kilo-ohm, and three 150
-ohm resistors, your file should look like this:
+
+Description: This program finds/combines a desired resistance among a finite number of resistors.
+It also  prints out the corresponding diagram onto the console. The resistor values should be 
+located in another file named “myResistors.txt” and it should be located in the same directory as 
+this program. The formatting of that text file should (in every line) have the resistor value, 
+followed by a comma, and then followed by the quantity. For example, if you have two 330 ohm, 
+five 1kilo-ohm, and three 150 ohm resistors, your file should look like this:
 
 330,2
 1000,5
 150,3
 
-This program is free software.
+This program is free software.'''
 
-'''
 import numpy as np
 import abc 
 import sys
 
-# base class for two child/sub-classes (SingleResistor and CompositeResistor)
+''' This first class is a base for two child classes (SingleResistor and CompositeResistor).
+The strSchematic string variable gives instructions on how to connect/build the
+overall resistance. Resistors A and B are instructed to connect in series with the
+notation: [A,B]. A parallel instruction uses this notation: (A;B). Any composite 
+series/parallel resistance can be built using combinations of these two base instructions.
+For instance, if you wanted to connect the parallel resistors (A;B) in series to a third 
+resistor C, the string instruction would be: [(A;B),C] '''
+
 class Resistance(metaclass=abc.ABCMeta):
-# The strSchematic string variable gives instructions on how to connect/build the
-# the overall resistance. Resistors A and B are connected in series with the notation: [A,B].
-# A parallel connection uses this notation: (A;B). Any composite resistance can be
-# built using combinations of these two connections.
+
     def __init__(self, totalResistance, strSchematic):
         self.__totalResistance = totalResistance
         self.__strSchematic = strSchematic
@@ -42,6 +47,7 @@ class Resistance(metaclass=abc.ABCMeta):
         x, y = 0, 0
         stackX, stackY = [], []
         readingNumbers = False
+    
            
         for c in range(len(s)): 
             if readingNumbers == True and s[c] != '>':
@@ -289,7 +295,7 @@ while(True):
 #get user's stopping percentage
 while(True):
     try:
-        stoppingPercentage = float(input("Finally, enter the stopping percentage (the program will "
+        stoppingPercentage = float(input("Finally, enter a stopping percentage (the program will "
         "stop once it finds a resisitance within this range): "))
         if stoppingPercentage < 0 or stoppingPercentage > 100: raise ValueError
     except ValueError: print("(The percentage must be a number and between zero and one hundred.)")
@@ -297,7 +303,7 @@ while(True):
         print("\n\n")
         break
     
-#find glabal and/or local optimum solution(s)   
+#find global and/or local optimum solution(s)   
 myOptimalList = getOptimalList(rL, desiredResistance, maximumResistors, stoppingPercentage)
 
 print("Search complete. The closest match uses {} resistor(s):\n".format(len(myOptimalList[0].getInstanceResArray())))
