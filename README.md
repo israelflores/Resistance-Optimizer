@@ -109,6 +109,6 @@ The final thing to note about using this program is that your resistor values sh
 51000,4
 ```
 
-## Capacitance
+## Capacitance and Inductance
 
-Notice that since equivalent capacitance is calculated in an analogous manner to equivalent resistance, the code in this program can be easily tweaked/accommodated to find a desired capacitance. 
+Notice that since equivalent capacitance and inductance are calculated in an analogous manner to equivalent resistance, the code in this program can be easily tweaked/accommodated to find a desired capacitance/inductance.  
