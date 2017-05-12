@@ -1,5 +1,5 @@
 # Resistance-Optimizer
-This program finds the closest series/parallel desired equivalent resistance among a finite set of resistors. It also shows how to make the corresponding connections via a diagram that it prints out into the console
+This program finds the closest series/parallel desired equivalent resistance among a finite set of resistors. It also shows how to make the corresponding connections via a diagram that it prints out into the console.
 
 ## Motivation/Problem Statement
 This electronics problem usually arises whenever you need a specific resistor value, but only have a small number of resistors at your disposal.  Here is the problem stated a little more formally:
