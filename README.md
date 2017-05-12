@@ -1,5 +1,5 @@
 # Resistance-Optimizer
-Finds the closest series/parallel desired equivalent resistance among a finite set of resistors.
+This program finds the closest series/parallel desired equivalent resistance among a finite set of resistors. It also shows how to make the corresponding connections via a diagram that it prints out into the console
 
 ## Motivation/Problem Statement
 This electronics problem usually arises whenever you need a specific resistor value, but only have a small number of resistors at your disposal.  Here is the problem stated a little more formally:
@@ -98,7 +98,7 @@ O------<2.200E+04>--------------------
     
 This resistance = 15035.97 ohms (desired = 15000.0 ohms), difference = 0.240% 
 ```
-Now notice that the only new parameter that was introduced by the program was a “stopping percentage”. This is simply a difference percentage range (relative to the desired resistance) that the program looks for at every stage of the search. If a newly found resistance comes within this range, the program will automatically terminate and return that resistance. The reason for this feature is that, in practice, you’re usually satisfied with a resistance that merely comes close to the “optimal” resistance.  Moreover, if you’re using, say, 5% tolerance resistors (a common case), it renders the act of looking for a “perfect” resistance, as more or less an academic exercise.
+Now notice that the only new parameter that was introduced by the program was a “stopping percentage”. This is simply a difference percentage range (relative to the desired resistance) that the program looks for at every stage of the search. If a newly found resistance comes within this range, the program will automatically terminate and return that resistance. The reason for this feature is that, in practice, you’re usually satisfied with a resistance that merely comes close to the “optimal” resistance.  Moreover, if you’re using, say, 5% tolerance resistors (a common case), it renders the act of looking for a “perfect” resistance, as more or less an academic exercise. However, if you are interested the finding the “closest” match, simply enter a zero in for the stopping percentage (as it shows in this example), and the program will only pre-terminate if it finds an exact match. 
 
 Another thing to note is how the program prints out the optimal resistance at every level (i.e. at every resistor number) and only prints out the global optimum at the very end. The reason for this goes back to the whole “close enough” principle that I mentioned above. If you were really facing this problem/choice in real life, you’d probably want to consider the two-resistor combination (that comes within 2.5%), as your real/over-all optimal choice. Generally speaking, in electrical engineering (and in all engineering in general) the less components that you have, the better. Not only does less resistors free up more circuit real-estate, it simultaneously lowers cost and lowers the overall probability of something disconnecting and/or breaking. Thus, also having these other “non-optimal” options printed out into the console is a no-brainer.
 
