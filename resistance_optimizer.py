@@ -46,8 +46,7 @@ class Resistance(metaclass=abc.ABCMeta):
         schematic = ["",""]
         x, y = 0, 0
         stackX, stackY = [], []
-        readingNumbers = False
-    
+        readingNumbers = False    
            
         for c in range(len(s)): 
             if readingNumbers == True and s[c] != '>':
@@ -73,7 +72,7 @@ class Resistance(metaclass=abc.ABCMeta):
                 schematic[y-1] += "|"
                 
                 for n in range(y-2, 0, -1):
-                    if schematic[n][12*x] != ' ': break
+                    if schematic[n][resStrLength*x] != ' ': break
                     else: schematic[n] = schematic[n][:resStrLength*x] + "|" + schematic[n][resStrLength*x+1:]            
                 
                 for n in range(x):
